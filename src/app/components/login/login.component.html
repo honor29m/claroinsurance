@@ -1,1 +1,37 @@
-<p>login works!</p>
+<h2>Sign in</h2>
+<h1>Welcome!</h1>
+
+
+<div id="login">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+          
+    
+        <div class="form-group col-md-4">
+            <label for="user">User*</label>
+            <input type="text" class="form-control" name="user" #user="ngModel" [(ngModel)]="login.user" required pattern="[a-z]+">
+        
+            <small *ngIf="!user.valid && user.touched">
+                El usuario no es válido, no colocar caracteres especiales o números. 
+            </small>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="password">Password*</label>
+            <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="login.password" required pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$">
+       
+            <small *ngIf="!password.valid && password.touched">
+                La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
+            </small>
+        </div>
+
+        <div class="form-group col-md-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="politics" #politics="ngModel" [(ngModel)]="login.politics" value="true" id="flexCheckDefault" required>  
+                <label class="form-check-label" for="flexCheckDefault">Está de acuerdo con la <a href="#">política de privacidad</a>.</label>                      
+            </div>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="loginForm.invalid">Sign in</button>
+    
+    </form>
+</div>
