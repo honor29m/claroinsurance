@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -12,6 +13,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorComponent } from './components/error/error.component';
+
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.default
+}
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import { ErrorComponent } from './components/error/error.component';
     BrowserModule,
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgWizardModule.forRoot(ngWizardConfig)
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

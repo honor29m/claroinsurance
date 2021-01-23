@@ -1,1 +1,93 @@
-<p>registro works!</p>
+<div class="wizard">
+    <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+    
+        <ng-wizard-step [title]="'Step 1'" [description]="'Datos del Jugador'"
+        [canEnter]="isValidTypeBoolean" [canExit]="isValidFunctionReturnsBoolean.bind(this)">
+            
+            <form #userForm="ngForm" (ngSubmit)="showPreviousStep()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstname">Nombre *</label>
+                        <input type="text" class="form-control" name="firstname" #firstname="ngModel" [(ngModel)]="jugador.firstname"
+                            required pattern="[a-zA-z]+">
+                
+                        <small *ngIf="!firstname.valid && firstname.touched">
+                            El nombre no es válido, no colocar caracteres especiales.
+                        </small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Apellido *</label>
+                        <input type="text" class="form-control" name="lastname" #lastname="ngModel" [(ngModel)]="jugador.lastname" required
+                            pattern="[a-zA-z]+">
+                
+                        <small *ngIf="!lastname.valid && lastname.touched">
+                            El apellido no es válido, no colocar caracteres especiales.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="height_inches">Altura (pulgadas)</label>
+                        <input type="text" class="form-control" name="height_inches" #height_inches="ngModel" [(ngModel)]="jugador.height_inches">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="height_feet">Altura (pies)</label>
+                        <input type="text" class="form-control" name="height_feet" #height_feet="ngModel" [(ngModel)]="jugador.height_feet">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="weight">Peso</label>
+                        <input type="text" class="form-control" name="weight" #weight="ngModel" [(ngModel)]="jugador.weight" pattern="[a-zA-z]+">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="position">Posicion *</label>
+                        <select class="form-control" #position="ngModel" name="position" [(ngModel)]="jugador.positicon" required>
+                           <!-- <option selected value="0">...</option>-->
+                            <option [value]="'A'">A</option>
+                            <option [value]="'B'">B</option>
+                            <option [value]="'C'">C</option>
+                            <option [value]="'D'">D</option>
+                            <option [value]="'E'">E</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="date">Fecha de nacimiento</label>
+                        <input type="text" class="form-control" name="date" #date="ngModel" [(ngModel)]="jugador.date">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="age">Edad</label>
+                        <input type="text" class="form-control" name="age" #age="ngModel" [(ngModel)]="jugador.age">
+                    </div>
+                </div>    
+            </form>    
+        </ng-wizard-step>
+        
+        <ng-wizard-step [title]="'Step 2'" [description]="'Step 2 description'" [state]="stepStates.disabled">
+        <span>Step 2 content</span>
+        </ng-wizard-step>
+        
+        <ng-wizard-step [title]="'Step 3'" [description]="'Step 3 description'"
+        [canEnter]="isValidFunctionReturnsObservable.bind(this)" [canExit]="isValidFunctionReturnsBoolean.bind(this)">
+        <span>Step 3 content</span>
+        </ng-wizard-step>
+    
+    <ng-wizard-step [title]="'Step 4'" [description]="'Step 4 description'">
+        <span>Step 4 content</span>
+        </ng-wizard-step>
+    
+        <ng-wizard-step [title]="'Step 5'" [description]="'Step 5 description'" [state]="stepStates.hidden">
+        <span>Step 5 content</span>
+        </ng-wizard-step>
+        
+        <ng-wizard-step [title]="'Step 6'" [description]="'Step 6 description'" [state]="stepStates.error">
+        <span>Step 6 content</span>
+        </ng-wizard-step>
+        
+        <ng-wizard-step [title]="'Step 7'" [description]="'Step 7 description'">
+        <span>Step 7 content</span>
+        </ng-wizard-step>
+    </ng-wizard>
+</div>
