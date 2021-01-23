@@ -1,6 +1,29 @@
 /* GENERALES */
+body {
+    background: linear-gradient(to bottom, blue, white);
+}
 
+.full {
+    width: 80%;
+    margin-top: 50px;
+    margin-left: 35%;
+    margin-right: 50%;
+    margin-bottom: 20%;
+}
 
+/* LOGIN */
+.login {
+    background-color: #ccc;
+    width: 30%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 4px 5px #383837;
+}
+
+.btn {
+    margin-left: 71%;
+}
 
 /* REGISTRO */
 .wizard {
