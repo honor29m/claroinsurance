@@ -1,1 +1,35 @@
-<p>consulta works!</p>
+<div *ngIf="jugadores!=null; else espera">
+    <table border="1">
+        <tr>
+            <td>Posición</td>
+            <td>ID</td>
+            <td>Primer nombre</td>
+            <td>Apellido</td>
+            <td>Altura (pulgadas)</td>
+            <td>Altura (pies)</td>
+            <td>Peso</td>    
+        </tr>
+        <tr *ngFor="let jugador of jugadores">
+            <td *ngIf="jugador.position!=null; else raya">{{jugador.position}}</td>
+            <td>{{jugador.id}}</td>
+            <td>{{jugador.first_name}}</td>
+            <td>{{jugador.last_name}}</td>
+            <td>{{jugador.height_inches}}</td>
+            <td>{{jugador.height_feet}}</td>
+            <td>{{jugador.weight_pounds}}</td>
+        </tr>
+    </table>
+</div>
+<ng-template #espera>Esperando datos...</ng-template>
+<ng-template #raya><td>-</td></ng-template>
+
+
+
+<!-- public id: any,
+        public first_name: string,
+        public height_feet: any,
+        public height_inches: any,
+        public last_name: string,
+        public position: string,
+        public team: any,
+        public weight_pounds: any-->
