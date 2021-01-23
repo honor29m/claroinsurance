@@ -1,1 +1,31 @@
-<p>menu works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+    <div class="container">
+        <div class="logo">
+            <img src="assets/img/logo2.png" class="logo-img" alt="Logotipo" />
+            <span class="brand">
+                <strong>Claro </strong>Players
+            </span>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/consulta']" [routerLinkActive]="['active']">Consulta</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/registro']" [routerLinkActive]="['active']">Registro</a>
+                </li>
+
+            </ul>
+        </div>
+        <!--End Menu-->
+    </div>
+    <!--End Container-->
+</nav>
