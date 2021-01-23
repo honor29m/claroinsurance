@@ -48,7 +48,7 @@ export class RegistroComponent implements OnInit {
   }
 
   showPreviousStep(event?: Event) {
-    console.log(this.jugador);
+    /*console.log(this.jugador);*/
     this.ngWizardService.previous();
   }
 

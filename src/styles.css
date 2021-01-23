@@ -43,4 +43,10 @@ body {
     margin-top: 50px;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 120px;
+}
+
+.contenido {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
